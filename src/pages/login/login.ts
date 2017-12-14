@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+import {SignupPage} from '../signup/signup';
+import {HomePage} from '../home/home';
 
 /**
  * Generated class for the LoginPage page.
@@ -14,8 +15,8 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  userData = { "username": "","password": "" };
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loginUserData = { "username": "","password": "" };
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -23,10 +24,30 @@ export class LoginPage {
   }
 
   login(){
-    if(this.userData.username.toUpperCase() === "DEMO" && this.userData.password.toUpperCase() === "DEMO"){
-      this.navCtrl.push(TabsPage, {}, {animate: false});
+    if(this.loginUserData.username.toUpperCase() === "DEMO" && this.loginUserData.password.toUpperCase() === "DEMO"){
+      
+      let userData = {"name": "DEMO","lastname": "TEST","dni ": "11111111", "username": "DEMO","password": "DEMO", "repassword": "DEMO" };
+      localStorage.setItem('userData', JSON.stringify(userData));
+      this.navCtrl.setRoot(HomePage, {}, {animate: false});
     }
-
+    else{
+      this.showError();
+    }
   }
+
+  showError() {
+    let alert = this.alertCtrl.create({
+      title: 'Error en las credenciales',
+      subTitle: 'El usuario y/o contraseña ingresado no es correcto',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  signup(){
+    //Login page link
+    this.navCtrl.push(SignupPage);
+  }
+
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
-import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import {DailyconsumptioninputPage} from '../dailyconsumptioninput/dailyconsumptioninput';
+import {WelcomePage} from '../welcome/welcome';
 
 @Component({
   selector: 'page-home',
@@ -10,24 +11,22 @@ export class HomePage {
   userDetails : any;
   responseData: any;
 
-  userPostData = {"user_id":"","token":""};
-
-  constructor(public navCtrl: NavController,  public app: App, public authService:AuthServiceProvider) {
+  constructor(public navCtrl: NavController,  public app: App) {
     const data = JSON.parse(localStorage.getItem('userData'));
-    this.userDetails = data.userData;
-  
-    this.userPostData.user_id = this.userDetails.user_id;
-    this.userPostData.token = this.userDetails.token;
+    this.userDetails = data;
   }
 
   backToWelcome(){
-    const root = this.app.getRootNav();
-    root.popToRoot();
+    this.navCtrl.setRoot(WelcomePage);
  }
  
  logout(){
       localStorage.clear();
       setTimeout(() => this.backToWelcome(), 1000);
+ }
+
+ newComnsumption(){
+  this.navCtrl.push(DailyconsumptioninputPage);
  }
 
 }

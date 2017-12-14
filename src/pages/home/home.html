@@ -1,12 +1,15 @@
 <ion-header>
-  <ion-navbar>
-      <img ion-right src="assets/imgs/logo.png" class="navbarLogo" />
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-row>
+      <ion-col><img ion-right src="assets/imgs/logo.png" class="navbarLogo" /></ion-col>
+      <ion-col class="center pageTitle" center text-center><ion-title>Bienvenido {{userDetails.name}}</ion-title></ion-col>
+      <ion-col><div (click)="logout()"><img ion-right src="assets/imgs/logout.png" class="logoutBtn" /></div></ion-col>
+    </ion-row>
 </ion-header>
 
 <ion-content padding>
-  <h2>Vivir mejor es comer bien</h2>
-  <h3>Bienvenido {{userDetails.name}}</h2>
-  <button ion-button color="primary" (click)="logout()">Cerrar sesión</button>
+  <ion-row>
+      <ion-col center text-center>
+        <button ion-button full color="success" (click)="newComnsumption()">Ingresar nuevo consumo</button>
+      </ion-col>
+    </ion-row>
 </ion-content>

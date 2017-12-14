@@ -7,12 +7,51 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>dailyconsumptioninput</ion-title>
+    <ion-title>Nuevo consumo diario</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-card>
+        <ion-card-header>
+            Nuevo consumo diario
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Fecha y hora del consumo</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="data.datetime"></ion-datetime>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label stacked>Alimento consumido</ion-label>
+                <ion-input type="text" [(ngModel)]="data.food"></ion-input>
+              </ion-item>
+  
+            <ion-item>
+              <ion-label stacked>Estado de animo</ion-label>
+              <ion-select [(ngModel)]="data.mindState">
+                  <ion-option>Fastidioso</ion-option>
+                  <ion-option>Contento</ion-option>
+                  <ion-option>Deprimido</ion-option>
+                </ion-select>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label stacked>Tipo de comida</ion-label>
+                <ion-select [(ngModel)]="data.foodType">
+                    <ion-option>Desayuno</ion-option>
+                    <ion-option>Almuerzo</ion-option>
+                    <ion-option>Merienda</ion-option>
+                    <ion-option>Cena</ion-option>
+                    <ion-option>Colación</ion-option>
+                  </ion-select>
+              </ion-item>
+  
+            <button ion-button center color="success" (click)="saveConsumption()">Guardar consumo</button>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
 </ion-content>

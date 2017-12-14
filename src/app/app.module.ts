@@ -7,7 +7,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import {DailyconsumptioninputPage} from '../pages/dailyconsumptioninput/dailyconsumptioninput';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,9 +18,9 @@ import { HttpModule } from '@angular/http';
   declarations: [
     MyApp,
     HomePage,
-    TabsPage,
     WelcomePage,
     LoginPage,
+    DailyconsumptioninputPage,
     SignupPage
   ],
   imports: [
@@ -31,9 +31,9 @@ import { HttpModule } from '@angular/http';
   entryComponents: [
     MyApp,
     HomePage,
-    TabsPage,
     WelcomePage,
     LoginPage,
+    DailyconsumptioninputPage,
     SignupPage
   ],
   providers: [

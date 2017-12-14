@@ -1,3 +1,14 @@
 page-home {
-
+    img.navbarLogo {
+        width: 52px;
+        display: inline-block;
+    }
+    img.logoutBtn {
+        padding-left: 30px;
+        padding-top: 4px;
+        width: 70px;
+    }
+    ion-col.center.pageTitle.col {
+        padding-top: 20px;
+    }
 }

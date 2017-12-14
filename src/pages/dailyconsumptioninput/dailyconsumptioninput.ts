@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 
 /**
  * Generated class for the DailyconsumptioninputPage page.
@@ -8,18 +8,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-dailyconsumptioninput',
   templateUrl: 'dailyconsumptioninput.html',
 })
 export class DailyconsumptioninputPage {
+  data = {datetime: "", food: "", mindState: "", foodTypes: ""};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DailyconsumptioninputPage');
+  }
+
+  saveConsumption(){
+    // TODO: Save Consumption
+    const root = this.app.getRootNav();
+    root.popToRoot();
   }
 
 }
